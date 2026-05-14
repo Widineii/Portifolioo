@@ -128,6 +128,31 @@ export const projects: Project[] = [
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/SaldoX" }],
   },
   {
+    id: "clinica-agenda",
+    type: "Sistema web",
+    title: "Agenda Affetto — clínica",
+    description:
+      "Agendamento web com perfis admin e profissional, grade semanal por sala, atendimentos fixos ou avulsos e regras de cancelamento — substitui planilha por fluxo seguro no navegador.",
+    tags: ["Java", "Spring Boot", "Thymeleaf", "PostgreSQL", "Bootstrap"],
+    category: "Web",
+    coverImage: assetUrl("assets/projects/clinica-agenda.svg"),
+    links: [
+      { label: "Demo online", href: "https://clinica-agenda-production.up.railway.app" },
+      { label: "Código no GitHub", href: "https://github.com/Widineii/clinica-agenda" },
+    ],
+  },
+  {
+    id: "mediaflow",
+    type: "Portal web",
+    title: "MediaFlow",
+    description:
+      "Catálogo de jogos, filmes, séries e mangás com busca, filtros, cards com capas, promoções, onde assistir e favoritos salvos no perfil local.",
+    tags: ["Java", "Spring Boot", "HTML", "CSS", "JavaScript"],
+    category: "Web",
+    coverImage: assetUrl("assets/projects/mediaflow.svg"),
+    links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Mediaflow" }],
+  },
+  {
     id: "farmacia",
     type: "Sistema desktop",
     title: "Sistema de Farmácia",
