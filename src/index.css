@@ -1034,10 +1034,6 @@ html[data-theme="light"] .section[data-active="true"]::before {
   --cat: var(--fuchsia);
 }
 
-.project-card--Institucional {
-  --cat: #a78bfa;
-}
-
 .project-card__bar {
   height: 4px;
   background: linear-gradient(90deg, var(--cat), transparent);

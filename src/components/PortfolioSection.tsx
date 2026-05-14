@@ -29,7 +29,7 @@ export function PortfolioSection({ sectionActive }: PortfolioSectionProps) {
           <p className="section__eyebrow">Portfólio</p>
           <h2 className="section__title">Projetos em destaque</h2>
           <p className="section__intro">
-            Projetos reais com código aberto — web, desktop, API e vitrine institucional.
+            Projetos reais com código aberto — web, desktop e APIs.
           </p>
         </header>
         <div className="filters" role="tablist" aria-label="Filtrar projetos">

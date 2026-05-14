@@ -1,11 +1,6 @@
 import { assetUrl } from "./site";
 
-export type ProjectCategory =
-  | "Todos"
-  | "Web"
-  | "Desktop"
-  | "API"
-  | "Institucional";
+export type ProjectCategory = "Todos" | "Web" | "Desktop" | "API";
 
 export type Project = {
   id: string;
@@ -165,40 +160,9 @@ export const projects: Project[] = [
     coverImage: assetUrl("assets/projects/mercado.png"),
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/mercado-do-tonico" }],
   },
-  {
-    id: "portifolio-site",
-    type: "Institucional",
-    title: "Portfólio comercial (site)",
-    description:
-      "Landing com serviços, projetos com prints, stack, FAQ e contato via WhatsApp — vitrine estática no ar no GitHub Pages.",
-    tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
-    category: "Institucional",
-    coverImage: assetUrl("portfolio-landing.svg"),
-    links: [
-      { label: "Ver site", href: "https://widineii.github.io/Portifolio/" },
-      { label: "Código", href: "https://github.com/Widineii/Portifolio" },
-    ],
-  },
-  {
-    id: "portifolioo",
-    type: "Case study",
-    title: "Portifolioo (este site)",
-    description:
-      "Versão estilo case study (React + Vite) para GitHub Pages, com filtros de projetos, jornada e stack agrupada.",
-    tags: ["React", "TypeScript", "Vite", "Framer Motion"],
-    category: "Web",
-    coverImage: assetUrl("og.svg"),
-    links: [{ label: "Código", href: "https://github.com/Widineii/Portifolioo" }],
-  },
 ];
 
-export const projectFilterCategories: ProjectCategory[] = [
-  "Todos",
-  "Web",
-  "Desktop",
-  "API",
-  "Institucional",
-];
+export const projectFilterCategories: ProjectCategory[] = ["Todos", "Web", "Desktop", "API"];
 
 export const stackGroups = [
   {
