@@ -28,10 +28,16 @@ export class ErrorBoundary extends Component<Props, State> {
           }}
         >
           <h1 style={{ fontSize: "1.25rem" }}>Algo deu errado ao carregar o portfólio</h1>
-          <p>
-            Tente atualizar com <strong>Ctrl+F5</strong> (limpa cache). Se o problema continuar, abra o site em
-            outra aba anônima.
-          </p>
+        <p style={{ marginTop: "1rem", fontSize: "0.9rem", opacity: 0.85 }}>
+          <strong>URL correta:</strong>{" "}
+          <a href="https://widineii.github.io/Portifolioo/" style={{ color: "#67e8f9" }}>
+            widineii.github.io/Portifolioo
+          </a>{" "}
+          — não confunda com <strong>/Portifolio/</strong> (site HTML antigo). Se o console mostrar um{" "}
+          <code>index-….js</code> diferente do que aparece no GitHub em Actions → deploy, o navegador está com{" "}
+          <strong>cache</strong>: F12 → <strong>Application</strong> → <strong>Clear site data</strong>, ou abra em{" "}
+          <strong>aba anônima</strong>.
+        </p>
         </div>
       );
     }
