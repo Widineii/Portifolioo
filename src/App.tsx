@@ -17,7 +17,7 @@ import { useThemePalette } from "./hooks/useThemePalette";
 
 export default function App() {
   const { themeMode, setThemeMode, palette } = useThemePalette();
-  const { readingProgress, sectionActive } = useScrollSpy();
+  const { readingProgress, activeSection, sectionActive } = useScrollSpy();
   const cursorOn = useCursorGlow();
   const profileFirstName = profile.name.split(" ")[0] ?? profile.name;
 
