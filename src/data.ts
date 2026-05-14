@@ -252,11 +252,6 @@ export const contact = {
       variant: "primary" as const,
     },
     { label: "GitHub", href: "https://github.com/Widineii", variant: "ghost" as const },
-    {
-      label: "Site portfólio (anterior)",
-      href: "https://widineii.github.io/Portifolio/",
-      variant: "ghost" as const,
-    },
   ],
 };
 
