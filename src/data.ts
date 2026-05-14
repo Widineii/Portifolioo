@@ -69,7 +69,7 @@ export const experience = [
     period: "2024 – presente",
     bullets: [
       "Sistemas desktop em Java Swing: PDV, controle de estoque, relatórios (XML/PDF), cadastros e permissões.",
-      "Sistemas web com Spring Boot e Node.js: login com JWT, dashboards, painel administrativo e APIs REST com Swagger.",
+      "Sistemas web com Spring Boot e Node.js: agendamento para clínica, portal MediaFlow, login com JWT, dashboards, painel administrativo e APIs REST com Swagger.",
       "Sites institucionais, landing pages e portfólios responsivos com HTML5, CSS3 e JavaScript.",
       "Modelagem e operação com PostgreSQL, MySQL e SQLite; correção de bugs, novas features e deploy quando aplicável.",
     ],
@@ -79,7 +79,7 @@ export const experience = [
     company: "Graduação em Ciência da Computação (em curso)",
     period: "Contínuo",
     bullets: [
-      "Casos completos no GitHub: gestão para farmácia e mercado, dashboard financeiro (SaldoX), demo bancária Nextt Bank e APIs corporativas com Spring Boot.",
+      "Casos completos no GitHub: agendamento web para clínica (Spring Boot + Thymeleaf), portal MediaFlow, gestão para farmácia e mercado, dashboard SaldoX, demo Nextt Bank e APIs com Spring Boot.",
       "Priorizo documentação, organização de pacotes e padrões que facilitam manutenção por outros desenvolvedores.",
     ],
   },
@@ -117,22 +117,11 @@ export const certifications = [
 
 export const projects: Project[] = [
   {
-    id: "saldox",
-    type: "Sistema web",
-    title: "SaldoX",
-    description:
-      "Dashboard financeiro com autenticação JWT, controle de receitas e despesas, exportação CSV/PDF e interface responsiva.",
-    tags: ["Java", "Spring Boot", "JWT", "PostgreSQL"],
-    category: "Web",
-    coverImage: assetUrl("assets/projects/saldox.jpg"),
-    links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/SaldoX" }],
-  },
-  {
     id: "clinica-agenda",
     type: "Sistema web",
-    title: "Agenda Affetto — clínica",
+    title: "Agendamento da clínica",
     description:
-      "Agendamento web com perfis admin e profissional, grade semanal por sala, atendimentos fixos ou avulsos e regras de cancelamento — substitui planilha por fluxo seguro no navegador.",
+      "Sistema web de agenda para clínica (Agenda Affetto): perfis admin e profissional, grade semanal por sala e cliente, atendimentos avulsos ou fixos e regras de cancelamento — substitui planilha por fluxo no navegador.",
     tags: ["Java", "Spring Boot", "Thymeleaf", "PostgreSQL", "Bootstrap"],
     category: "Web",
     coverImage: assetUrl("assets/projects/clinica-agenda.svg"),
@@ -146,11 +135,22 @@ export const projects: Project[] = [
     type: "Portal web",
     title: "MediaFlow",
     description:
-      "Catálogo de jogos, filmes, séries e mangás com busca, filtros, cards com capas, promoções, onde assistir e favoritos salvos no perfil local.",
+      "Portal de entretenimento: jogos, filmes, séries e mangás com busca, filtros, cards com capas, promoções, onde assistir e favoritos no perfil local.",
     tags: ["Java", "Spring Boot", "HTML", "CSS", "JavaScript"],
     category: "Web",
     coverImage: assetUrl("assets/projects/mediaflow.svg"),
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Mediaflow" }],
+  },
+  {
+    id: "saldox",
+    type: "Sistema web",
+    title: "SaldoX",
+    description:
+      "Dashboard financeiro com autenticação JWT, controle de receitas e despesas, exportação CSV/PDF e interface responsiva.",
+    tags: ["Java", "Spring Boot", "JWT", "PostgreSQL"],
+    category: "Web",
+    coverImage: assetUrl("assets/projects/saldox.jpg"),
+    links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/SaldoX" }],
   },
   {
     id: "farmacia",
