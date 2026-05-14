@@ -27,10 +27,11 @@ npm run build
 
 1. Crie o repositório [github.com/Widineii/Portifolioo](https://github.com/Widineii/Portifolioo) (se ainda não existir).
 2. Envie este código para a branch `main` (ou `master`).
-3. No GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-4. O workflow `.github/workflows/deploy.yml` faz o deploy automático a cada push.
+3. No GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
+4. Branch **`gh-pages`**, pasta **`/` (root)**. Salve.
+5. O workflow `.github/workflows/deploy.yml` gera o build e publica na branch `gh-pages` a cada push em `main`.
 
-Na primeira vez, confira a aba **Actions** se o job concluiu sem erros.
+Na primeira vez, após o workflow verde, a URL passa a responder em alguns minutos: `https://widineii.github.io/Portifolioo/`
 
 ## Imagens dos projetos
 
