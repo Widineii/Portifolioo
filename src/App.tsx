@@ -45,8 +45,12 @@ function effectivePalette(mode: ThemeMode): Palette {
 
 function readInitialTheme(): ThemeMode {
   if (typeof window === "undefined") return "auto";
-  const saved = localStorage.getItem(THEME_KEY);
-  if (saved === "dark" || saved === "light" || saved === "auto") return saved;
+  try {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved === "dark" || saved === "light" || saved === "auto") return saved;
+  } catch {
+    /* ignore */
+  }
   return "auto";
 }
 
@@ -80,7 +84,7 @@ function computeSectionReadingProgress(): number {
 const fadeUp = {
   initial: { opacity: 0, y: 22 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-50px" },
+  viewport: { once: true, amount: 0.12 },
   transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
 };
 
@@ -124,7 +128,11 @@ export default function App() {
   useLayoutEffect(() => {
     document.documentElement.dataset.theme = palette;
     document.documentElement.style.colorScheme = palette === "light" ? "light" : "dark";
-    localStorage.setItem(THEME_KEY, themeMode);
+    try {
+      localStorage.setItem(THEME_KEY, themeMode);
+    } catch {
+      /* ignore */
+    }
   }, [palette, themeMode]);
 
   useEffect(() => {
@@ -275,7 +283,12 @@ export default function App() {
 
         <main id="top">
           <section className="hero shell" id="inicio">
-            <motion.div className="hero-bento" {...fadeUp}>
+            <motion.div
+              className="hero-bento"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
               <div className="hero-bento__visual">
                 <div className="hero-frame">
                   <div className="hero-frame__inner">
@@ -307,10 +320,9 @@ export default function App() {
                     className="stat"
                     key={s.label}
                     role="listitem"
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.08 * i, duration: 0.4 }}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.12 + i * 0.06, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <div className="stat__value">{s.value}</div>
                     <div className="stat__label">{s.label}</div>
