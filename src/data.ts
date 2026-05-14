@@ -1,4 +1,4 @@
-import { STATIC_PORTFOLIO_PROJECT_ASSETS } from "./site";
+import { assetUrl } from "./site";
 
 export type ProjectCategory =
   | "Todos"
@@ -14,7 +14,7 @@ export type Project = {
   description: string;
   tags: string[];
   category: Exclude<ProjectCategory, "Todos">;
-  /** Print hospedado no site estático ou URL absoluta */
+  /** Print em `public/` (via `assetUrl`) ou URL absoluta */
   coverImage?: string;
   links?: { label: string; href: string }[];
 };
@@ -129,7 +129,7 @@ export const projects: Project[] = [
       "Dashboard financeiro com autenticação JWT, controle de receitas e despesas, exportação CSV/PDF e interface responsiva.",
     tags: ["Java", "Spring Boot", "JWT", "PostgreSQL"],
     category: "Web",
-    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/saldox.jpg`,
+    coverImage: assetUrl("assets/projects/saldox.jpg"),
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/SaldoX" }],
   },
   {
@@ -140,7 +140,7 @@ export const projects: Project[] = [
       "PDV, controle de estoque, relatórios em XML, gestão de produtos e fluxo completo para operação de farmácia.",
     tags: ["Java", "Swing", "SQLite", "XML", "PDV"],
     category: "Desktop",
-    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/farmacia.png`,
+    coverImage: assetUrl("assets/projects/farmacia.png"),
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Sistema-de-Farmacia" }],
   },
   {
@@ -151,7 +151,7 @@ export const projects: Project[] = [
       "Sistema bancário web demonstrativo: dashboard de operações, transferências, PIX simulado e painel administrativo.",
     tags: ["JavaScript", "Node.js", "Dashboard", "Admin"],
     category: "Web",
-    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/nextt-bank.jpg`,
+    coverImage: assetUrl("assets/projects/nextt-bank.jpg"),
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Nextt-bank" }],
   },
   {
@@ -162,7 +162,7 @@ export const projects: Project[] = [
       "Vendas para mercado: produtos, estoque, frente de caixa, fechamento e relatórios — operação de ponta a ponta.",
     tags: ["Java", "PDV", "Estoque", "Vendas"],
     category: "Desktop",
-    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/mercado.png`,
+    coverImage: assetUrl("assets/projects/mercado.png"),
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/mercado-do-tonico" }],
   },
   {
@@ -173,7 +173,7 @@ export const projects: Project[] = [
       "Landing com serviços, projetos com prints, stack, FAQ e contato via WhatsApp — vitrine estática no ar no GitHub Pages.",
     tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
     category: "Institucional",
-    coverImage: "https://widineii.github.io/Portifolio/og-image.svg",
+    coverImage: assetUrl("portfolio-landing.svg"),
     links: [
       { label: "Ver site", href: "https://widineii.github.io/Portifolio/" },
       { label: "Código", href: "https://github.com/Widineii/Portifolio" },
@@ -187,7 +187,7 @@ export const projects: Project[] = [
       "Versão estilo case study (React + Vite) para GitHub Pages, com filtros de projetos, jornada e stack agrupada.",
     tags: ["React", "TypeScript", "Vite", "Framer Motion"],
     category: "Web",
-    coverImage: "https://avatars.githubusercontent.com/u/174072875?v=4",
+    coverImage: assetUrl("og.svg"),
     links: [{ label: "Código", href: "https://github.com/Widineii/Portifolioo" }],
   },
 ];

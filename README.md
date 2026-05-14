@@ -35,7 +35,7 @@ Na primeira vez, após o workflow verde, a URL passa a responder em alguns minut
 
 ## Imagens dos projetos
 
-As capas vêm de `coverImage` em `src/data.ts` (URLs absolutas, inclusive prints do site estático em `/Portifolio/assets/projects/`).
+As capas vêm de `coverImage` em `src/data.ts`, usando `assetUrl()` para apontar para arquivos em **`public/assets/projects/`** (mesmo repositório — funcionam no GitHub Pages sem depender de outro site).
 
 ## Qualidade de código
 
