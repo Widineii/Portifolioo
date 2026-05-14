@@ -9,6 +9,31 @@ import { sectionIndex } from "../lib/sections";
 import { Reveal } from "./Reveal";
 import { SectionShell } from "./SectionShell";
 
+const projectListVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.06,
+    },
+  },
+} as const;
+
+const projectCardVariants = {
+  hidden: { opacity: 0, y: 36 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.48, ease: [0.22, 1, 0.36, 1] },
+  },
+} as const;
+
+const projectsViewport = {
+  once: true,
+  amount: 0.12,
+  margin: "0px 0px -10% 0px",
+} as const;
+
 type PortfolioSectionProps = {
   sectionActive: (id: string) => string | undefined;
 };
@@ -46,72 +71,117 @@ export function PortfolioSection({ sectionActive }: PortfolioSectionProps) {
             </button>
           ))}
         </div>
-        <div className="projects">
-          {filtered.map((p) => {
-            const thumbClass = `project-card__thumb${p.coverImage ? " project-card__thumb--has-image" : ""}`;
-            const body = (
-              <>
-                <div className="project-card__bar" aria-hidden />
-                <div className={thumbClass}>
-                  {p.coverImage ? (
-                    <img
-                      src={p.coverImage}
-                      alt={`Captura de tela do projeto ${p.title}`}
-                      loading="lazy"
-                      decoding="async"
-                      width={640}
-                      height={400}
-                    />
-                  ) : (
-                    "Capa"
-                  )}
-                </div>
-                <div className="project-card__body">
-                  <span className="project-card__type">{p.type}</span>
-                  <h3>{p.title}</h3>
-                  <p>{p.description}</p>
-                  <div className="project-card__tags">
-                    {p.tags.map((t) => (
-                      <span className="tag" key={t}>
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  {p.links && p.links.length > 0 ? (
-                    <div className="project-card__links">
-                      {p.links.map((lnk) => (
-                        <a key={lnk.href} href={lnk.href} target="_blank" rel="noreferrer">
-                          {lnk.label} →
-                        </a>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              </>
-            );
-
-            if (reduced) {
+        {reduced ? (
+          <div className="projects">
+            {filtered.map((p) => {
+              const thumbClass = `project-card__thumb${p.coverImage ? " project-card__thumb--has-image" : ""}`;
               return (
                 <article key={`${filter}-${p.id}`} className={`project-card project-card--${p.category}`}>
-                  {body}
+                  <div className="project-card__bar" aria-hidden />
+                  <div className={thumbClass}>
+                    {p.coverImage ? (
+                      <img
+                        src={p.coverImage}
+                        alt={`Captura de tela do projeto ${p.title}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={640}
+                        height={400}
+                      />
+                    ) : (
+                      "Capa"
+                    )}
+                  </div>
+                  <div className="project-card__body">
+                    <span className="project-card__type">{p.type}</span>
+                    <h3>{p.title}</h3>
+                    <p>{p.description}</p>
+                    <div className="project-card__tags">
+                      {p.tags.map((t) => (
+                        <span className="tag" key={t}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    {p.links && p.links.length > 0 ? (
+                      <div className="project-card__links">
+                        {p.links.map((lnk) => (
+                          <a key={lnk.href} href={lnk.href} target="_blank" rel="noreferrer">
+                            {lnk.label} →
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
                 </article>
               );
-            }
+            })}
+          </div>
+        ) : (
+          <motion.div
+            key={filter}
+            className="projects"
+            variants={projectListVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={projectsViewport}
+          >
+            {filtered.map((p) => {
+              const thumbClass = `project-card__thumb${p.coverImage ? " project-card__thumb--has-image" : ""}`;
+              const body = (
+                <>
+                  <div className="project-card__bar" aria-hidden />
+                  <div className={thumbClass}>
+                    {p.coverImage ? (
+                      <img
+                        src={p.coverImage}
+                        alt={`Captura de tela do projeto ${p.title}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={640}
+                        height={400}
+                      />
+                    ) : (
+                      "Capa"
+                    )}
+                  </div>
+                  <div className="project-card__body">
+                    <span className="project-card__type">{p.type}</span>
+                    <h3>{p.title}</h3>
+                    <p>{p.description}</p>
+                    <div className="project-card__tags">
+                      {p.tags.map((t) => (
+                        <span className="tag" key={t}>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    {p.links && p.links.length > 0 ? (
+                      <div className="project-card__links">
+                        {p.links.map((lnk) => (
+                          <a key={lnk.href} href={lnk.href} target="_blank" rel="noreferrer">
+                            {lnk.label} →
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </>
+              );
 
-            return (
-              <motion.article
-                key={`${filter}-${p.id}`}
-                className={`project-card project-card--${p.category}`}
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -6 }}
-              >
-                {body}
-              </motion.article>
-            );
-          })}
-        </div>
+              return (
+                <motion.article
+                  key={p.id}
+                  className={`project-card project-card--${p.category}`}
+                  variants={projectCardVariants}
+                  whileHover={{ y: -6 }}
+                >
+                  {body}
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        )}
       </Reveal>
     </SectionShell>
   );
