@@ -35,4 +35,11 @@ Na primeira vez, após o workflow verde, a URL passa a responder em alguns minut
 
 ## Imagens dos projetos
 
-No componente, a área `Pré-visualização / captura de tela` é um placeholder. Você pode trocar por `<img>` com arquivos em `public/` ou URLs externas.
+As capas vêm de `coverImage` em `src/data.ts` (URLs absolutas, inclusive prints do site estático em `/Portifolio/assets/projects/`).
+
+## Qualidade de código
+
+```bash
+npm run lint
+npm run format
+```

@@ -1,9 +1,23 @@
+import { STATIC_PORTFOLIO_PROJECT_ASSETS } from "./site";
+
 export type ProjectCategory =
   | "Todos"
   | "Web"
   | "Desktop"
   | "API"
   | "Institucional";
+
+export type Project = {
+  id: string;
+  type: string;
+  title: string;
+  description: string;
+  tags: string[];
+  category: Exclude<ProjectCategory, "Todos">;
+  /** Print hospedado no site estático ou URL absoluta */
+  coverImage?: string;
+  links?: { label: string; href: string }[];
+};
 
 export const profile = {
   /** Nome exibido no site (GitHub: nome público) */
@@ -70,7 +84,7 @@ export const experience = [
     company: "Graduação em Ciência da Computação (em curso)",
     period: "Contínuo",
     bullets: [
-      "Casos completos no GitHub: gestão para farmácia e mercado, dashboard financeiro (SaldoX), catálogo Mediaflow, demo bancária Nextt Bank e API Nexus para ciclo de vida de contratos.",
+      "Casos completos no GitHub: gestão para farmácia e mercado, dashboard financeiro (SaldoX), demo bancária Nextt Bank e APIs corporativas com Spring Boot.",
       "Priorizo documentação, organização de pacotes e padrões que facilitam manutenção por outros desenvolvedores.",
     ],
   },
@@ -106,15 +120,7 @@ export const certifications = [
   },
 ];
 
-export const projects: {
-  id: string;
-  type: string;
-  title: string;
-  description: string;
-  tags: string[];
-  category: Exclude<ProjectCategory, "Todos">;
-  links?: { label: string; href: string }[];
-}[] = [
+export const projects: Project[] = [
   {
     id: "saldox",
     type: "Sistema web",
@@ -123,6 +129,7 @@ export const projects: {
       "Dashboard financeiro com autenticação JWT, controle de receitas e despesas, exportação CSV/PDF e interface responsiva.",
     tags: ["Java", "Spring Boot", "JWT", "PostgreSQL"],
     category: "Web",
+    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/saldox.jpg`,
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/SaldoX" }],
   },
   {
@@ -133,6 +140,7 @@ export const projects: {
       "PDV, controle de estoque, relatórios em XML, gestão de produtos e fluxo completo para operação de farmácia.",
     tags: ["Java", "Swing", "SQLite", "XML", "PDV"],
     category: "Desktop",
+    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/farmacia.png`,
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Sistema-de-Farmacia" }],
   },
   {
@@ -143,6 +151,7 @@ export const projects: {
       "Sistema bancário web demonstrativo: dashboard de operações, transferências, PIX simulado e painel administrativo.",
     tags: ["JavaScript", "Node.js", "Dashboard", "Admin"],
     category: "Web",
+    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/nextt-bank.jpg`,
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Nextt-bank" }],
   },
   {
@@ -153,41 +162,18 @@ export const projects: {
       "Vendas para mercado: produtos, estoque, frente de caixa, fechamento e relatórios — operação de ponta a ponta.",
     tags: ["Java", "PDV", "Estoque", "Vendas"],
     category: "Desktop",
+    coverImage: `${STATIC_PORTFOLIO_PROJECT_ASSETS}/mercado.png`,
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/mercado-do-tonico" }],
-  },
-  {
-    id: "mediaflow",
-    type: "Catálogo web",
-    title: "Mediaflow",
-    description:
-      "Portal de entretenimento: jogos, filmes, séries, mangás e livros — busca, filtros, comparação de preços e favoritos.",
-    tags: ["Java", "Spring Boot", "Catálogo", "Responsivo"],
-    category: "Web",
-    links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Mediaflow" }],
-  },
-  {
-    id: "nexus",
-    type: "API corporativa",
-    title: "Nexus Gestão",
-    description:
-      "API para gestão do ciclo de vida de contratos com fornecedores: JWT, scheduler de alertas, Swagger e documentação.",
-    tags: ["Java 17", "Spring Boot 3", "JWT", "MySQL", "Swagger"],
-    category: "API",
-    links: [
-      {
-        label: "Código no GitHub",
-        href: "https://github.com/Widineii/Nexus-Gest-o---Contract-Flow-API",
-      },
-    ],
   },
   {
     id: "portifolio-site",
     type: "Institucional",
     title: "Portfólio comercial (site)",
     description:
-      "Landing completa com serviços, projetos, stack, planos, FAQ e formulário que abre WhatsApp — seu vitrine atual no ar.",
+      "Landing com serviços, projetos com prints, stack, FAQ e contato via WhatsApp — vitrine estática no ar no GitHub Pages.",
     tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
     category: "Institucional",
+    coverImage: "https://widineii.github.io/Portifolio/og-image.svg",
     links: [
       { label: "Ver site", href: "https://widineii.github.io/Portifolio/" },
       { label: "Código", href: "https://github.com/Widineii/Portifolio" },
@@ -201,8 +187,17 @@ export const projects: {
       "Versão estilo case study (React + Vite) para GitHub Pages, com filtros de projetos, jornada e stack agrupada.",
     tags: ["React", "TypeScript", "Vite", "Framer Motion"],
     category: "Web",
+    coverImage: "https://avatars.githubusercontent.com/u/174072875?v=4",
     links: [{ label: "Código", href: "https://github.com/Widineii/Portifolioo" }],
   },
+];
+
+export const projectFilterCategories: ProjectCategory[] = [
+  "Todos",
+  "Web",
+  "Desktop",
+  "API",
+  "Institucional",
 ];
 
 export const stackGroups = [
