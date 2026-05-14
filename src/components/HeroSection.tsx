@@ -9,9 +9,9 @@ export function HeroSection() {
     <section className="hero shell" id="inicio" aria-labelledby="hero-heading">
       <motion.div
         className="hero-bento"
-        initial={reduced ? false : { opacity: 0, y: 16 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduced ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: reduced ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="hero-bento__visual">
           <div className="hero-frame">
@@ -41,26 +41,12 @@ export function HeroSection() {
         <p className="hero-bento__lead hero__lead">{profile.lead}</p>
 
         <div className="hero-bento__stats stats" role="list">
-          {profile.stats.map((s, i) =>
-            reduced ? (
-              <div className="stat" key={s.label} role="listitem">
-                <div className="stat__value">{s.value}</div>
-                <div className="stat__label">{s.label}</div>
-              </div>
-            ) : (
-              <motion.div
-                className="stat"
-                key={s.label}
-                role="listitem"
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.12 + i * 0.06, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="stat__value">{s.value}</div>
-                <div className="stat__label">{s.label}</div>
-              </motion.div>
-            ),
-          )}
+          {profile.stats.map((s) => (
+            <div className="stat" key={s.label} role="listitem">
+              <div className="stat__value">{s.value}</div>
+              <div className="stat__label">{s.label}</div>
+            </div>
+          ))}
         </div>
       </motion.div>
 

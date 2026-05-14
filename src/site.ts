@@ -3,9 +3,17 @@ export const SITE_ORIGIN = "https://widineii.github.io";
 export const SITE_BASE_PATH = "/Portifolioo/";
 export const SITE_URL = `${SITE_ORIGIN}${SITE_BASE_PATH.replace(/\/$/, "")}/`;
 
-const base = import.meta.env.BASE_URL.endsWith("/")
-  ? import.meta.env.BASE_URL
-  : `${import.meta.env.BASE_URL}/`;
+function normalizeBase(): string {
+  try {
+    const raw = import.meta.env?.BASE_URL;
+    const s = typeof raw === "string" && raw.length > 0 ? raw : "/Portifolioo/";
+    return s.endsWith("/") ? s : `${s}/`;
+  } catch {
+    return "/Portifolioo/";
+  }
+}
+
+const base = normalizeBase();
 
 /** Caminho absoluto no deploy (respeita `base` do Vite, ex.: `/Portifolioo/`). */
 export function assetUrl(relativePath: string): string {
