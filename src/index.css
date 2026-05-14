@@ -312,11 +312,11 @@ html[data-theme="light"] .nav {
 .nav__links {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.25rem 0.85rem;
+  gap: 0.35rem 1.35rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  max-width: min(72vw, 560px);
+  max-width: min(88vw, 720px);
   justify-content: flex-end;
   mask-image: linear-gradient(90deg, transparent, #000 12px, #000 calc(100% - 12px), transparent);
 }
@@ -333,7 +333,7 @@ html[data-theme="light"] .nav {
   color: var(--text-muted);
   white-space: nowrap;
   text-decoration: none;
-  padding: 0.35rem 0;
+  padding: 0.4rem 0.35rem;
   position: relative;
 }
 
