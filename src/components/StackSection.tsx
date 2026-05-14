@@ -15,7 +15,7 @@ export function StackSection({ sectionActive }: StackSectionProps) {
           <p className="section__eyebrow">Expertise</p>
           <h2 className="section__title">Stack técnica</h2>
           <p className="section__intro">
-            Stack alinhada ao que aparece no seu portfólio comercial e nos repositórios públicos.
+            Stack alinhada ao que aparece nos projetos em destaque e nos repositórios públicos.
           </p>
         </header>
         <div className="stack-grid">

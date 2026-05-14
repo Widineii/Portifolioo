@@ -5,6 +5,7 @@ export function AmbientBackdrop() {
       <div className="ambient__orb ambient__orb--b" />
       <div className="ambient__orb ambient__orb--c" />
       <div className="ambient__grid" />
+      <div className="ambient__grain" aria-hidden />
     </div>
   );
 }

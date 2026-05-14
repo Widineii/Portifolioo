@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { profile } from "../data";
+import { contact, profile } from "../data";
 
 export function HeroSection() {
   const reduced = useReducedMotion();
@@ -39,6 +39,23 @@ export function HeroSection() {
         </div>
 
         <p className="hero-bento__lead hero__lead">{profile.lead}</p>
+
+        <div className="hero-bento__cta hero-cta">
+          {contact.links.map((lnk) => (
+            <a
+              key={lnk.href}
+              className={`btn${lnk.variant === "primary" ? " btn--primary" : " btn--ghost"}`}
+              href={lnk.href}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {lnk.label}
+            </a>
+          ))}
+          <a className="btn btn--ghost" href="#portfolio">
+            Ver projetos
+          </a>
+        </div>
 
         <div className="hero-bento__stats stats" role="list">
           {profile.stats.map((s) => (
