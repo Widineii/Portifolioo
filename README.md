@@ -41,5 +41,6 @@ As capas vêm de `coverImage` em `src/data.ts`, usando `assetUrl()` para apontar
 
 ```bash
 npm run lint
+npm run typecheck
 npm run format
 ```
