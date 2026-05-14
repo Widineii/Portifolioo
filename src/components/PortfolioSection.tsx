@@ -5,34 +5,10 @@ import {
   projects as allProjects,
   projectFilterCategories,
 } from "../data";
+import { scrollRevealListViewport, scrollStaggerItemVariants, scrollStaggerListVariants } from "../lib/motionProps";
 import { sectionIndex } from "../lib/sections";
 import { Reveal } from "./Reveal";
 import { SectionShell } from "./SectionShell";
-
-const projectListVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.06,
-    },
-  },
-} as const;
-
-const projectCardVariants = {
-  hidden: { opacity: 0, y: 36 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.48, ease: [0.22, 1, 0.36, 1] },
-  },
-} as const;
-
-const projectsViewport = {
-  once: true,
-  amount: 0.12,
-  margin: "0px 0px -10% 0px",
-} as const;
 
 type PortfolioSectionProps = {
   sectionActive: (id: string) => string | undefined;
@@ -121,10 +97,10 @@ export function PortfolioSection({ sectionActive }: PortfolioSectionProps) {
           <motion.div
             key={filter}
             className="projects"
-            variants={projectListVariants}
+            variants={scrollStaggerListVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={projectsViewport}
+            viewport={scrollRevealListViewport}
           >
             {filtered.map((p) => {
               const thumbClass = `project-card__thumb${p.coverImage ? " project-card__thumb--has-image" : ""}`;
@@ -173,7 +149,7 @@ export function PortfolioSection({ sectionActive }: PortfolioSectionProps) {
                 <motion.article
                   key={p.id}
                   className={`project-card project-card--${p.category}`}
-                  variants={projectCardVariants}
+                  variants={scrollStaggerItemVariants}
                   whileHover={{ y: -6 }}
                 >
                   {body}
