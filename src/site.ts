@@ -18,22 +18,8 @@ function normalizeBase(): string {
 
 const base = normalizeBase();
 
-/**
- * Caminho público absoluto a partir da raiz do site (ex.: `/Portifolioo/assets/...`).
- * No navegador vira URL absoluta com `origin`, evitando 404 quando a página não termina em `/`.
- */
+/** Caminho público com base do Vite (ex.: `/Portifolioo/assets/...`). */
 export function assetUrl(relativePath: string): string {
   const path = relativePath.replace(/^\//, "");
-  const withBase = `${base}${path}`;
-  if (typeof globalThis !== "undefined" && "location" in globalThis) {
-    const loc = (globalThis as { location?: { origin?: string } }).location;
-    if (loc?.origin) {
-      try {
-        return new URL(withBase, loc.origin).href;
-      } catch {
-        /* use string below */
-      }
-    }
-  }
-  return withBase;
+  return `${base}${path}`;
 }

@@ -124,7 +124,7 @@ export const projects: Project[] = [
       "Sistema web de agenda para clínica (Agenda Affetto): perfis admin e profissional, grade semanal por sala e cliente, atendimentos avulsos ou fixos e regras de cancelamento — substitui planilha por fluxo no navegador.",
     tags: ["Java", "Spring Boot", "Thymeleaf", "PostgreSQL", "Bootstrap"],
     category: "Web",
-    coverImage: assetUrl("assets/projects/clinica-agenda.svg"),
+    coverImage: assetUrl("assets/projects/clinica-agenda.png"),
     links: [
       { label: "Demo online", href: "https://clinica-agenda-production.up.railway.app" },
       { label: "Código no GitHub", href: "https://github.com/Widineii/clinica-agenda" },
@@ -138,7 +138,7 @@ export const projects: Project[] = [
       "Portal de entretenimento: jogos, filmes, séries e mangás com busca, filtros, cards com capas, promoções, onde assistir e favoritos no perfil local.",
     tags: ["Java", "Spring Boot", "HTML", "CSS", "JavaScript"],
     category: "Web",
-    coverImage: assetUrl("assets/projects/mediaflow.svg"),
+    coverImage: assetUrl("assets/projects/mediaflow.png"),
     links: [{ label: "Código no GitHub", href: "https://github.com/Widineii/Mediaflow" }],
   },
   {
